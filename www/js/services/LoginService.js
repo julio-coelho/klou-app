@@ -29,7 +29,7 @@ app.factory('LoginService', function($q, $http, $cordovaOauth, configuration, jw
 
     var deferred = $q.defer();
 
-    $cordovaOauth.facebook(configuration.FACEBOOK_APP_ID, ["email"])
+    $cordovaOauth.facebook(configuration.FACEBOOK_APP_ID, ['public_profile', 'email'])
     .then(function(result) {
       var auth_data = {
         access_token: result.access_token,

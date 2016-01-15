@@ -1,5 +1,18 @@
 var app = angular.module('klou-app', ['ionic', 'ngCordova', 'ngResource', 'angular-jwt'])
 
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
+
+    }
+    if (window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+  });
+})
+
 .config(function Config($httpProvider, jwtInterceptorProvider) {
   jwtInterceptorProvider.tokenGetter = function(config) {
     return localStorage.auth_token;
@@ -8,18 +21,9 @@ var app = angular.module('klou-app', ['ionic', 'ngCordova', 'ngResource', 'angul
   $httpProvider.interceptors.push('jwtInterceptor');
 })
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
+//hide text on backButton
+.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.backButton.previousTitleText(false).text('');
 })
 
 // .constant('configuration', {
@@ -28,6 +32,6 @@ var app = angular.module('klou-app', ['ionic', 'ngCordova', 'ngResource', 'angul
 // });
 
 .constant('configuration', {
-  ENDPOINT_URL: 'https://klou.herokuapp.com',
+  ENDPOINT_URL: 'https://klou-server.herokuapp.com',
   FACEBOOK_APP_ID: '907179459373896'
 });

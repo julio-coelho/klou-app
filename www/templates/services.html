@@ -1,12 +1,9 @@
-<ion-view title="Services">
+<ion-view view-title="Services">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list></ion-list>
         <ion-list>
-            <ion-item href="#/pro-service-detail">Mão Simples</ion-item>
-            <ion-item href="#/pro-service-detail">Pés Simples</ion-item>
-            <ion-item href="#/pro-service-detail">Mão Porcelana</ion-item>
-            <ion-item href="#/pro-service-detail">Mão Postiça</ion-item>
-            <ion-item href="#/pro-service-detail">Nail Art</ion-item>
+            <ion-item ng-repeat="service in services" href="#professional/services/{{service._id}}">
+              {{service.name}}
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

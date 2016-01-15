@@ -5,8 +5,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
-      controller: 'LoginController',
-      controllerAs: 'LoginCtrl'
+      controller: 'LoginController'
     })
 
     .state('professional', {
@@ -20,8 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'professional': {
           templateUrl: 'templates/calendar.html',
-          controller: 'CalendarController',
-          controllerAs: 'CalendarCtrl'
+          controller: 'CalendarController'
         }
       }
     })
@@ -31,8 +29,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'professional': {
           templateUrl: 'templates/profile.html',
-          controller: 'ProfileController',
-          controllerAs: 'ProfileCtrl'
+          controller: 'ProfileController'
         }
       }
     })
@@ -42,17 +39,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'professional': {
           templateUrl: 'templates/services.html',
-          controller: 'ServicesController',
-          controllerAs: 'ServicesCtrl'
+          controller: 'ServicesController'
         }
       }
     })
 
-    .state('serviceDetail', {
-      url: '/service-detail',
-      templateUrl: 'templates/serviceDetail.html',
-      controller: 'ServicesController',
-      controllerAs: 'ServicesCtrl'
+    .state('professional.services-detail', {
+      url: '/services/:id',
+      views: {
+        'professional': {
+          templateUrl: 'templates/servicesDetail.html',
+          controller: 'ServicesDetailController'
+        }
+      }
     })
 
     .state('professional.schedule', {
@@ -60,35 +59,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'professional': {
           templateUrl: 'templates/schedule.html',
-          controller: 'ScheduleController',
-          controllerAs: 'ScheduleCtrl'
+          controller: 'ScheduleController'
         }
       }
     })
 
-    .state('scheduleDetail', {
+    .state('professional.schedule-detail', {
       url: '/schedule-detail',
       templateUrl: 'templates/scheduleDetail.html',
-      controller: 'ScheduleController',
-      controllerAs: 'ScheduleCtrl'
+      controller: 'ScheduleController'
     })
 
-    .state('professional.packages', {
-      url: '/packages',
+    .state('professional.packs', {
+      url: '/packs',
       views: {
         'professional': {
-          templateUrl: 'templates/packages.html',
-          controller: 'PackagesController',
-          controllerAs: 'PackagesCtrl'
+          templateUrl: 'templates/packs.html',
+          controller: 'packsController'
         }
       }
     })
 
-    .state('packageDetail', {
-      url: '/package-detail',
-      templateUrl: 'templates/packageDetail.html',
-      controller: 'PackagesController',
-      controllerAs: 'PackagesCtrl'
+    .state('professional.packs-detail', {
+      url: '/packs-detail',
+      templateUrl: 'templates/packDetail.html',
+      controller: 'packsController'
     });
 
   // if none of the above states are matched, use this as the fallback

@@ -1,0 +1,44 @@
+<ion-view>
+  <ion-nav-title>{{ service.name }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-compose-outline" ng-click="toggleEdit()" ng-disabled="editing"></button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <form class="list">
+          <ion-toggle toggle-class="toggle-balanced" name="active" ng-model="service.active" ng-disabled="!editing">Ativo</ion-toggle>
+          <label class="item item-input" name="price">
+              <span class="input-label">Preço</span>
+              <input type="number" ng-model="service.price" placeholder="R$ 0,00" ng-readonly="!editing">
+          </label>
+          <label class="item item-select">
+              <span class="input-label">Tempo</span>
+                <select ng-model="service.duration" ng-disabled="!editing" convert-to-number>
+                  <option value="15">15 min</option>
+                  <option value="30">30 min</option>
+                  <option value="45">45 min</option>
+                  <option value="60">60 min</option>
+                </select>
+          </label>
+          <label class="item item-select">
+              <span class="input-label">Intervalo</span>
+                <select ng-model="service.interval" ng-disabled="!editing" convert-to-number>
+                  <option value="05"> 5 min</option>
+                  <option value="10">10 min</option>
+                  <option value="15">15 min</option>
+                  <option value="20">20 min</option>
+                  <option value="25">25 min</option>
+                  <option value="30">30 min</option>
+                  <option value="35">35 min</option>
+                  <option value="40">40 min</option>
+                  <option value="45">45 min</option>
+                  <option value="50">50 min</option>
+                  <option value="55">55 min</option>
+                  <option value="60">60 min</option>
+                </select>
+          </label>
+          <div class="buttons">
+            <button class="button button-full button-positive" ng-click="save(service)" ng-show="editing">Save</button>
+          <div>
+      </form>
+  </ion-content>
+</ion-view>
