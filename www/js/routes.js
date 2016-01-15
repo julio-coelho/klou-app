@@ -65,9 +65,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('professional.schedule-detail', {
-      url: '/schedule-detail',
-      templateUrl: 'templates/scheduleDetail.html',
-      controller: 'ScheduleController'
+      url: '/schedule/:dayOfWeek',
+      views: {
+        'professional': {
+          templateUrl: 'templates/scheduleDetail.html',
+          controller: 'ScheduleDetailController'
+        }
+      }
     })
 
     .state('professional.packs', {
@@ -81,9 +85,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('professional.packs-detail', {
-      url: '/packs-detail',
-      templateUrl: 'templates/packDetail.html',
-      controller: 'packsController'
+      url: '/packs/:id',
+      views: {
+        'professional': {
+          templateUrl: 'templates/packDetail.html',
+          controller: 'packsDetailController'
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback

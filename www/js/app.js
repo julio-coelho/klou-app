@@ -5,7 +5,6 @@ var app = angular.module('klou-app', ['ionic', 'ngCordova', 'ngResource', 'angul
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       StatusBar.styleDefault();
@@ -13,6 +12,7 @@ var app = angular.module('klou-app', ['ionic', 'ngCordova', 'ngResource', 'angul
   });
 })
 
+//interceptor to add auth_token to requests
 .config(function Config($httpProvider, jwtInterceptorProvider) {
   jwtInterceptorProvider.tokenGetter = function(config) {
     return localStorage.auth_token;

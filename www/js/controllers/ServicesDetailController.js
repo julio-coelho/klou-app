@@ -1,4 +1,4 @@
-app.controller('ServicesDetailController', function($scope, $ionicLoading, $stateParams, ServicesService) {
+app.controller('ServicesDetailController', function($scope, $state, $ionicLoading, $stateParams, ServicesService) {
 
   $scope.editing = false;
   $scope.service = {};
@@ -19,6 +19,7 @@ app.controller('ServicesDetailController', function($scope, $ionicLoading, $stat
     ServicesService.update({_id: null}, $scope.service, function(response) {
       $ionicLoading.hide();
       $scope.toggleEdit();
+      $state.go('professional.services');
     });
   };
 
