@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+   <div class="buttons">
+     <button class="button button-clear" ng-click="closeModal()">Cancel</button>
+     <h1 class="title">{{ pack.name }}</h1>
+     <button class="button button-clear" ng-click="saveModal()">Save</button>
+   </div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <form class="list">
+      <label class="item item-input" name="quantity">
+          <span class="input-label">Quantidade</span>
+          <input type="number" ng-model="service.quantity">
+      </label>
+      <label class="item item-input">
+          <span class="input-label">Serviço</span>
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" ng-model="service.name" ng-change="search(service.name)" placeholder="Search">
+      </label>
+      <ion-list>
+          <ion-item ng-repeat="srv in filteredServices" ng-click="select(srv)" ng-hide="!searching">
+            {{srv.name}}
+          </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-modal-view>

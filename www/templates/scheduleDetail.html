@@ -5,7 +5,7 @@
   </ion-nav-buttons>
   <ion-content overflow-scroll="true" padding="true" class="has-header">
     <form class="list">
-      <ion-list show-delete="showDelete">
+      <ion-list show-delete="deleting">
           <ion-item ng-repeat="shift in day.shifts">
             <ion-delete-button class="ion-minus-circled" ng-click="remove(shift)"></ion-delete-button>
             <input type="time" ng-model="shift.startFull" ng-readonly="!editing"></input>
@@ -14,7 +14,7 @@
       </ion-list>
       <div class="button-bar" ng-show="editing">
           <button class="button button-stable button-positive" ng-click="add()">Add</button>
-          <button class="button button-stable button-assertive" ng-click="showDelete = !showDelete">Delete</button>
+          <button class="button button-stable button-assertive" ng-click="deleting = !deleting">Delete</button>
           <button class="button button-stable button-balanced" ng-click="save(day)">Save</button>
       </div>
     </form>

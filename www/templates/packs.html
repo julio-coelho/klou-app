@@ -1,10 +1,9 @@
 <ion-view view-title="Packages">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <ion-list>
-            <ion-item class="item-thumbnail-left" href="#/pro-package-detail">
-                <img>
-                <h2>Pacote 1</h2>
-                <p>4 mãos + 2 pés</p>
+            <ion-item ng-repeat="pack in packs" href="#professional/packs/{{pack._id}}">
+              {{pack.name}}
+              <p ng-repeat="service in pack.services">{{service.quantity }}  -  {{service.name}}</p>
             </ion-item>
         </ion-list>
     </ion-content>

@@ -79,7 +79,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'professional': {
           templateUrl: 'templates/packs.html',
-          controller: 'packsController'
+          controller: 'PacksController'
         }
       }
     })
@@ -88,8 +88,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/packs/:id',
       views: {
         'professional': {
-          templateUrl: 'templates/packDetail.html',
-          controller: 'packsDetailController'
+          templateUrl: 'templates/packsDetail.html',
+          controller: 'PacksDetailController'
         }
       }
     });

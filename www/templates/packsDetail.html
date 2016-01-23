@@ -1,0 +1,55 @@
+<ion-view>
+  <ion-nav-title>{{ pack.name }}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-compose-outline" ng-click="toggleEdit()" ng-disabled="editing"></button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <form class="list">
+          <ion-toggle toggle-class="toggle-balanced" name="active" ng-model="pack.active" ng-disabled="!editing">Ativo</ion-toggle>
+          <label class="item item-input" name="price">
+              <span class="input-label">Preço</span>
+              <input type="number" ng-model="pack.price" placeholder="R$ 0,00" ng-readonly="!editing">
+          </label>
+          <label class="item item-select">
+              <span class="input-label">Tempo</span>
+                <select ng-model="pack.duration" ng-disabled="!editing" convert-to-number>
+                  <option value="15">15 min</option>
+                  <option value="30">30 min</option>
+                  <option value="45">45 min</option>
+                  <option value="60">60 min</option>
+                </select>
+          </label>
+          <label class="item item-select">
+              <span class="input-label">Intervalo</span>
+                <select ng-model="pack.interval" ng-disabled="!editing" convert-to-number>
+                  <option value="05"> 5 min</option>
+                  <option value="10">10 min</option>
+                  <option value="15">15 min</option>
+                  <option value="20">20 min</option>
+                  <option value="25">25 min</option>
+                  <option value="30">30 min</option>
+                  <option value="35">35 min</option>
+                  <option value="40">40 min</option>
+                  <option value="45">45 min</option>
+                  <option value="50">50 min</option>
+                  <option value="55">55 min</option>
+                  <option value="60">60 min</option>
+                </select>
+          </label>
+          <div class="spacer" style="width: 300px; height: 37px;"></div>
+          <ion-list show-delete="deleting">
+            <ion-item class="item-divider">Serviços</ion-item>
+            <ion-item ng-repeat="service in pack.services">
+              <ion-delete-button class="ion-minus-circled" ng-click="remove(shift)"></ion-delete-button>
+              {{ service.quantity }}  -  {{ service.name }}
+            </ion-item>
+          </ion-list>
+          <div class="spacer" style="width: 300px; height: 37px;"></div>
+          <div class="button-bar" ng-show="editing">
+              <button class="button button-stable button-positive" ng-click="openModal()">Add</button>
+              <button class="button button-stable button-assertive" ng-click="deleting = !deleting">Delete</button>
+              <button class="button button-stable button-balanced" ng-click="save(day)">Save</button>
+          </div>
+      </form>
+  </ion-content>
+</ion-view>
